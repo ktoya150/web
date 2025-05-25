@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>ValveOrigins - Тест: Що ти знаєш про Valve?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background-color: #000;
+      flex-wrap: wrap;
+    }
+
+    .site-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffa500;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .navbar a:hover {
+      color: #ffa500;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 700px;
+      margin: 30px auto;
+      box-sizing: border-box;
+      padding: 25px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+    }
+
+    .quiz-question {
+      margin-bottom: 25px;
+    }
+
+    .quiz-question h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+      color: #ffa500;
+    }
+
+    .answers label {
+      display: block;
+      margin: 6px 0;
+      font-size: 17px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 20px;
+      color: #00ff99;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #e06c00;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #ff8000;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+      color: #888;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+ <header class="site-header" style="background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(6px); padding: 20px 40px; border-bottom: 2px solid #ffb000; display: flex; justify-content: flex-start; align-items: center; gap: 40px;">
+  <div style="font-size: 24px; font-weight: bold; color: #ffb000; text-shadow: 0 0 10px rgba(255,176,0,0.8);">
+    ValveOrigins
+  </div>
+  <nav class="navbar" style="display: flex; gap: 12px;">
+    <a href="index.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Головна</a>
+    <a href="products.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Ігри</a>
+    <a href="founders.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Засновники</a>
+    <a href="history.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Історія</a>
+    <a href="office.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Офіс</a>
+    <a href="valve_head.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Людина-вентель</a>
+    <a href="test.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Інтерактив</a>
+  </nav>
+</header>
+  <main class="content">
+    <section class="card">
+      <h2>Тест: Що ти знаєш про Valve?</h2>
+
+      <form id="quiz-form">
+        <div class="quiz-question">
+          <h3>1. У якому році заснована компанія Valve?</h3>
+          <div class="answers">
+            <label><input type="radio" name="q1" value="0"> 1993</label>
+            <label><input type="radio" name="q1" value="1"> 1996</label>
+            <label><input type="radio" name="q1" value="0"> 2000</label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>2. Яка гра була першим проєктом Valve?</h3>
+          <div class="answers">
+            <label><input type="radio" name="q2" value="1"> Half-Life</label>
+            <label><input type="radio" name="q2" value="0"> Portal</label>
+            <label><input type="radio" name="q2" value="0"> Dota 2</label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>3. Як називається цифрова платформа, створена Valve?</h3>
+          <div class="answers">
+            <label><input type="radio" name="q3" value="0"> Origin</label>
+            <label><input type="radio" name="q3" value="1"> Steam</label>
+            <label><input type="radio" name="q3" value="0"> Battle.net</label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>4. У якій грі з’являється Гордон Фрімен?</h3>
+          <div class="answers">
+            <label><input type="radio" name="q4" value="1"> Half-Life</label>
+            <label><input type="radio" name="q4" value="0"> Portal</label>
+            <label><input type="radio" name="q4" value="0"> Counter-Strike</label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>5. Назвіть одну з VR-розробок Valve.</h3>
+          <div class="answers">
+            <label><input type="radio" name="q5" value="0"> Team Fortress VR</label>
+            <label><input type="radio" name="q5" value="1"> Half-Life: Alyx</label>
+            <label><input type="radio" name="q5" value="0"> CS:VR</label>
+          </div>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Перевірити результати</button>
+        <div class="result" id="result"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 ValveOrigins. Усі права захищено.</p>
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      const form = document.forms['quiz-form'];
+      let score = 0;
+      for (let i = 1; i <= 5; i++) {
+        const answer = form['q' + i].value;
+        if (answer === '1') score++;
+      }
+      document.getElementById('result').innerText = `Твій результат: ${score} з 5`;
+    }
+  </script>
+</body>
+</html>
