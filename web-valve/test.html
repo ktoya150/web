@@ -77,7 +77,8 @@
       color: #00ff99;
     }
 
-    button {
+    button,
+    input[type="submit"] {
       padding: 12px 25px;
       background-color: #e06c00;
       border: none;
@@ -85,9 +86,11 @@
       cursor: pointer;
       font-size: 16px;
       border-radius: 4px;
+      margin-top: 10px;
     }
 
-    button:hover {
+    button:hover,
+    input[type="submit"]:hover {
       background-color: #ff8000;
     }
 
@@ -98,27 +101,41 @@
       color: #888;
       margin-top: 40px;
     }
+
+    input, label {
+      margin-bottom: 10px;
+    }
+
+    input[type="number"], input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0 12px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background-color: #222;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
- <header class="site-header" style="background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(6px); padding: 20px 40px; border-bottom: 2px solid #ffb000; display: flex; justify-content: flex-start; align-items: center; gap: 40px;">
-  <div style="font-size: 24px; font-weight: bold; color: #ffb000; text-shadow: 0 0 10px rgba(255,176,0,0.8);">
-    ValveOrigins
-  </div>
-  <nav class="navbar" style="display: flex; gap: 12px;">
-    <a href="index.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Головна</a>
-    <a href="products.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Ігри</a>
-    <a href="founders.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Засновники</a>
-    <a href="history.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Історія</a>
-    <a href="office.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Офіс</a>
-    <a href="valve_head.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Людина-вентель</a>
-    <a href="test.html" style="padding: 8px 16px; background: #111; border: 2px solid #ffb000; border-radius: 4px; color: #fff; text-decoration: none;">Інтерактив</a>
-  </nav>
-</header>
+  <header class="site-header" style="background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(6px); padding: 20px 40px; border-bottom: 2px solid #ffb000; display: flex; justify-content: flex-start; align-items: center; gap: 40px;">
+    <div style="font-size: 24px; font-weight: bold; color: #ffb000; text-shadow: 0 0 10px rgba(255,176,0,0.8);">
+      ValveOrigins
+    </div>
+    <nav class="navbar">
+      <a href="index.html">Головна</a>
+      <a href="products.html">Ігри</a>
+      <a href="founders.html">Засновники</a>
+      <a href="history.html">Історія</a>
+      <a href="office.html">Офіс</a>
+      <a href="valve_head.html">Людина-вентель</a>
+      <a href="test.html">Інтерактив</a>
+    </nav>
+  </header>
+
   <main class="content">
     <section class="card">
       <h2>Тест: Що ти знаєш про Valve?</h2>
-
       <form id="quiz-form">
         <div class="quiz-question">
           <h3>1. У якому році заснована компанія Valve?</h3>
@@ -169,10 +186,31 @@
         <div class="result" id="result"></div>
       </form>
     </section>
+
+    <section class="card">
+      <h2>Скільки часу ти вже провів у світах Valve?</h2>
+      <label for="dota">Годин у Dota 2:</label>
+      <input type="number" id="dota" name="dota" min="0">
+
+      <label for="cs">Годин у CS:GO / CS2:</label>
+      <input type="number" id="cs" name="cs" min="0">
+
+      <label for="tf2">Годин у Team Fortress 2:</label>
+      <input type="number" id="tf2" name="tf2" min="0">
+
+      <label for="portal">Годин у Portal / Portal 2:</label>
+      <input type="number" id="portal" name="portal" min="0">
+
+      <label for="hl">Годин у Half-Life серії:</label>
+      <input type="number" id="hl" name="hl" min="0">
+
+      <button onclick="calculateValveTime()">Порахувати</button>
+      <p id="valveTimeResult" style="margin-top: 10px; color: #00ff99;"></p>
+    </section>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 ValveOrigins. Усі права захищено.</p>
+    <p>&copy; 2025 ValveOrigins.</p>
   </footer>
 
   <script>
@@ -184,6 +222,22 @@
         if (answer === '1') score++;
       }
       document.getElementById('result').innerText = `Твій результат: ${score} з 5`;
+    }
+
+    function calculateValveTime() {
+      let dota = parseFloat(document.getElementById("dota").value) || 0;
+      let cs = parseFloat(document.getElementById("cs").value) || 0;
+      let tf2 = parseFloat(document.getElementById("tf2").value) || 0;
+      let portal = parseFloat(document.getElementById("portal").value) || 0;
+      let hl = parseFloat(document.getElementById("hl").value) || 0;
+
+      let totalHours = dota + cs + tf2 + portal + hl;
+      let days = totalHours / 24;
+      let hl2Replays = Math.floor(totalHours / 15);
+
+      document.getElementById("valveTimeResult").innerText =
+        `Ти провів ${totalHours.toFixed(1)} годин у світах Valve! Це ≈ ${days.toFixed(1)} днів.
+        За цей час ти міг би пройти Half-Life 2 ${hl2Replays} разів 😄`;
     }
   </script>
 </body>
